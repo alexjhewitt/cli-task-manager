@@ -1,0 +1,39 @@
+cmake-build-debug
+.idea
+# Executables
+*.exe
+*.out
+
+# Object files
+*.o
+*.obj
+
+# Libraries
+*.lib
+*.a
+*.so
+*.dll
+*.dylib
+
+# Compiler-generated files
+*.d
+*.gch
+*.pch
+
+# Build artifacts
+build/
+bin/
+out/
+
+# Debug files
+*.pdb
+
+# Test executables
+*test
+
+# Dependency directories (if using a package manager)
+/packages
+/libs
+
+# System files
+.DS_Store
