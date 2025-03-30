@@ -3,4 +3,6 @@ project(task_manager)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(task_manager main.cpp)
+add_executable(task_manager main.cpp
+        Task.cpp
+        Task.h)
