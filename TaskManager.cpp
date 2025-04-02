@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "TaskManager.h"
+#include "Enums.h"
 
 
 void TaskManager::add_task(int id, std::string description, Priority p, Status s)
@@ -19,12 +20,18 @@ void TaskManager::list_tasks()
     }
 }
 
-void TaskManager::mark_complete()
+void TaskManager::mark_complete(Task t)
 {
-
+    t.set_status(Status::completed);
 }
 
-void TaskManager::remove_task()
+void TaskManager::remove_task(int id)
 {
-
+    for (int i {0}; i < all_tasks.size(); ++i)
+    {
+        if (all_tasks.at(i).get_id() == id)
+        {
+            all_tasks.erase();
+        }
+    }
 }

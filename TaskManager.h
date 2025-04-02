@@ -12,8 +12,8 @@ class TaskManager {
 public:
     void add_task(int id, std::string description, Priority p, Status s);
     void list_tasks();
-    void remove_task();
-    void mark_complete();
+    void remove_task(int id);
+    void mark_complete(Task t);
 private:
     std::vector<Task> all_tasks;
 };
