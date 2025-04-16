@@ -18,7 +18,8 @@ int main()
 {
     std::time_t t {std::time(nullptr)};
     char time[100];
-    std::strftime(time, sizeof(time), "%m.%d.%Y %T", std::localtime(&t));
+    std::strftime(time, sizeof(time), "%m.%d.%Y  %T\n", std::localtime(&t));
+    std::cout << time;
 
     while (true)
     {
