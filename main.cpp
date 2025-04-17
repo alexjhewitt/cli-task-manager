@@ -14,12 +14,19 @@ std::string get_user_input()
     std::getline(std::cin, user_input);
     return user_input;
 }
-int main()
-{
+
+std::string get_current_time() {
     std::time_t t {std::time(nullptr)};
     char time[100];
     std::strftime(time, sizeof(time), "%m.%d.%Y  %T\n", std::localtime(&t));
     std::cout << time;
+    return time;
+}
+
+
+
+int main()
+{
 
     while (true)
     {

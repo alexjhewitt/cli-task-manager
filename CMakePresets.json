@@ -1,0 +1,17 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "GCC 14.2.0 x86_64-pc-linux-gnu",
+            "displayName": "GCC 14.2.0 x86_64-pc-linux-gnu",
+            "description": "Using compilers: C = /home/linuxbrew/.linuxbrew/bin/gcc-14, CXX = /home/linuxbrew/.linuxbrew/bin/g++-14",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "/home/linuxbrew/.linuxbrew/bin/gcc-14",
+                "CMAKE_CXX_COMPILER": "/home/linuxbrew/.linuxbrew/bin/g++-14",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ]
+}
