@@ -14,6 +14,8 @@ struct Task
     std::string description;
     Priority priority;
     Status status;
+    std::string created_at;
+    std::string updated_at;
 };
 
 #endif //TASK_H
