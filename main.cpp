@@ -10,7 +10,25 @@
 
 void get_command(const std::string_view command)
 {
-    // if (command == "a")
+    if (command == "add")
+    {
+        std::cout << "Add command detected!" << '\n';
+    } else if (command == "update")
+    {
+        std::cout << "Update command detected!" << '\n';
+    } else if (command == "delete")
+    {
+        std::cout << "Delete command detected!" << '\n';
+    } else if (command == "mark-in-progress")
+    {
+        std::cout << "Mark In Progress command detected!" << '\n';
+    } else if (command == "mark-done")
+    {
+        std::cout << "Mark done command detected!" << '\n';
+    } else if (command == "list")
+    {
+        std::cout << "List Progress command detected!" << '\n';
+    }
 }
 
 std::string get_user_input()
@@ -35,7 +53,7 @@ std::vector<std::string> split_command(const std::string_view command)
     std::string word {};
     for (const char c : command)
     {
-        if (!isalnum(c))
+        if (!isalnum(c) && c != '-' && c != '\"')
         {
             split_command.push_back(word);
             word = "";
@@ -57,10 +75,7 @@ int main()
     {
         std::string command {get_user_input()};
         std::vector split {split_command(command)};
-        for (auto s : split)
-        {
-            std::cout << s << "->";
-        }
+        get_command(split.at(0));
         if (command == "q")
         {
             break;
