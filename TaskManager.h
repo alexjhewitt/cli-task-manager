@@ -1,23 +1,21 @@
 //
-// Created by Alex Hewitt on 4/2/25.
+// Created by Alex Hewitt on 4/26/25.
 //
 
 #ifndef TASKMANAGER_H
 #define TASKMANAGER_H
+
 #include <vector>
 #include "Task.h"
-#include "Enums.h"
 
-// class TaskManager {
-// public:
-//     void add_task(std::string description, Priority p, Status s);
-//     void list_tasks();
-//     void remove_task(int id);
-//     void mark_complete(Task t);
-//     void update_task(Task t);
-// private:
-//     std::vector<Task> all_tasks;
-// };
+
+class TaskManager {
+public:
+    void add_task(Task t);
+    void list_tasks();
+private:
+    std::vector<Task> tasks_ {};
+};
 
 
 

@@ -4,9 +4,9 @@ project(task_manager)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(task_manager main.cpp
-        Task.cpp
-        Task.h
+        Enums.h
+        Enums.cpp
         TaskManager.cpp
         TaskManager.h
-        Enums.h
-        Enums.cpp)
+        Task.cpp
+        Task.h)

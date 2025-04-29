@@ -1,4 +1,3 @@
-#include <ctime>
 #include <iostream>
 #include "Enums.h"
 #include "Task.h"
@@ -8,11 +7,13 @@
 //
 // }
 
-void get_command(const std::string_view command)
+void run_command(const std::string_view command, TaskManager &task_manager)
 {
     if (command == "add")
     {
         std::cout << "Add command detected!" << '\n';
+        task_manager.add_task(Task(1, "a", Status::backlog, Priority::low, "no", "time"));
+
     } else if (command == "update")
     {
         std::cout << "Update command detected!" << '\n';
@@ -27,7 +28,11 @@ void get_command(const std::string_view command)
         std::cout << "Mark done command detected!" << '\n';
     } else if (command == "list")
     {
+        task_manager.list_tasks();
         std::cout << "List Progress command detected!" << '\n';
+    } else
+    {
+        std::cout << "Unrecognized command, try again!" << '\n';
     }
 }
 
@@ -37,14 +42,6 @@ std::string get_user_input()
     std::string user_input;
     std::getline(std::cin, user_input);
     return user_input;
-}
-
-std::string get_current_time() {
-    std::time_t t {std::time(nullptr)};
-    char time[100];
-    std::strftime(time, sizeof(time), "%m.%d.%Y  %T\n", std::localtime(&t));
-    std::cout << time;
-    return time;
 }
 
 std::vector<std::string> split_command(const std::string_view command)
@@ -70,18 +67,20 @@ std::vector<std::string> split_command(const std::string_view command)
 
 int main()
 {
+    TaskManager task_manager{};
+
 
     while (true)
     {
-        std::string command {get_user_input()};
-        std::vector split {split_command(command)};
-        get_command(split.at(0));
+        std::vector<std::string> command_list {split_command(get_user_input())};
+        std::string& command {command_list.at(0)};
         if (command == "q")
         {
+            std::cout << "Exiting..." << '\n';
             break;
         }
+        run_command(command, task_manager);
     }
-    // auto tm = TaskManager();
 
     // tm.add_task("Task 1", Priority::low, Status::in_progress);
     // tm.add_task("test 2", Priority::high, Status::backlog);

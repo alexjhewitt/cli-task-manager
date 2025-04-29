@@ -1,9 +1,18 @@
 //
-// Created by Alex Hewitt on 3/30/25.
+// Created by Alex Hewitt on 4/26/25.
 //
-#include <iostream>
 #include "Task.h"
-#include "Enums.h"
 
-struct Task;
+std::string Task::get_current_time()
+{
+    std::time_t t {std::time(nullptr)};
+    char time[100];
+    std::strftime(time, sizeof(time), "%m.%d.%Y  %T\n", std::localtime(&t));
+    std::cout << time;
+    return time;
+}
 
+void Task::print_task_details() const
+{
+    std::cout << "ID: " << id_ << '\n';
+}
