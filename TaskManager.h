@@ -11,7 +11,7 @@
 
 class TaskManager {
 public:
-    void add_task(Task t);
+    void add_task(std::vector<std::string>& command_list);
     void list_tasks();
 private:
     std::vector<Task> tasks_ {};

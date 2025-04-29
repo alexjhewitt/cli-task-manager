@@ -7,12 +7,15 @@
 //
 // }
 
-void run_command(const std::string_view command, TaskManager &task_manager)
+void run_command(const std::vector<std::string>& command_list, TaskManager &task_manager)
 {
+    static int id {0};
+    const std::string& command {command_list.at(0)};
+
     if (command == "add")
     {
         std::cout << "Add command detected!" << '\n';
-        task_manager.add_task(Task(1, "a", Status::backlog, Priority::low, "no", "time"));
+        task_manager.add_task(command_list);
 
     } else if (command == "update")
     {
@@ -69,17 +72,15 @@ int main()
 {
     TaskManager task_manager{};
 
-
     while (true)
     {
         std::vector<std::string> command_list {split_command(get_user_input())};
-        std::string& command {command_list.at(0)};
-        if (command == "q")
+        if (command_list.at(0) == "q")
         {
             std::cout << "Exiting..." << '\n';
             break;
         }
-        run_command(command, task_manager);
+        run_command(command_list, task_manager);
     }
 
     // tm.add_task("Task 1", Priority::low, Status::in_progress);

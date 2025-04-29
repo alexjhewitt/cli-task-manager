@@ -27,7 +27,7 @@ public:
     std::string get_current_time();
     void print_task_details() const;
 private:
-    int id_ {0};
+    int id_;
     std::string description_;
     Status status_;
     Priority priority_;
