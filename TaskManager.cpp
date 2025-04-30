@@ -3,6 +3,7 @@
 //
 
 #include "TaskManager.h"
+static int id {0};
 void TaskManager::add_task(std::vector<std::string>& command_list)
 {
     std::string description {};
@@ -10,13 +11,14 @@ void TaskManager::add_task(std::vector<std::string>& command_list)
     {
         if (i == command_list.size()-1)
         {
-
             description += command_list.at(i);
+            break;
         }
         description += command_list.at(i) + " ";
     }
-    Task new_task {}
-    tasks_.push_back(t);
+    Task new_task {id, description};
+    tasks_.push_back(new_task);
+    id += 1;
 }
 
 void TaskManager::list_tasks()

@@ -9,4 +9,6 @@ add_executable(task_manager main.cpp
         TaskManager.cpp
         TaskManager.h
         Task.cpp
-        Task.h)
+        Task.h
+        Time.cpp
+        Time.h)
