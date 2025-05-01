@@ -19,6 +19,7 @@ void TaskManager::add_task(std::vector<std::string>& command_list)
     Task new_task {id, description};
     tasks_.push_back(new_task);
     id += 1;
+    std::cout << "Task added successfully (ID: " << id << ")\n";
 }
 
 void TaskManager::list_tasks()
